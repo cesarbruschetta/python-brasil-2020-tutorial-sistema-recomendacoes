@@ -1,0 +1,97 @@
+openapi: "3.0.0"
+info:
+  version: 0.0.1
+  title: Recommendation Api
+paths:
+  /recommendations:
+    get:
+      summary: List all Recommendations
+      x-openapi-router-controller: recommendations.controller.c
+      operationId: get_recommendations
+      responses:
+        '200':
+          description: The Recommendations available
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Recommendations"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    options:
+        summary: Pages options
+        x-openapi-router-controller: recommendations.controller.c
+        operationId: get_options
+        responses:
+          '200':
+            description: The pages options                
+    
+  /recommendations/{product_sku}:
+    parameters:
+      - name: product_sku
+        in: path
+        required: true
+        description: The id of the Recommendation
+        schema:
+          type: string
+    get:
+      summary: get Recommendation
+      x-openapi-router-controller: recommendations.controller.c
+      operationId: get_recommendations_products
+      responses:
+        '200':
+          description: The Recommendation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Recommendation"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error" 
+    options:
+      summary: Pages options
+      x-openapi-router-controller: recommendations.controller.c
+      operationId: get_options
+      responses:
+        '200':
+          description: The pages options
+      
+      
+  /healthcheck:
+    get:
+      summary: Checks application health
+      x-openapi-router-controller: recommendations.controller.c
+      operationId: healthcheck
+      responses:
+        '200':
+          description: Healthcheck
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    Recommendations:
+      type: array
+      items:
+        $ref: "#/components/schemas/Recommendation"
+
+    Recommendation:
+      type: object
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
