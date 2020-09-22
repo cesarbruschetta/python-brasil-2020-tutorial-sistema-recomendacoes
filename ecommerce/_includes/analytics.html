@@ -1,0 +1,23 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166855025-1"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.GA_TAG }}');
+
+  // get user-id
+  const urlParams = new URLSearchParams(window.location.search);
+  const user_id = urlParams.get('user-id') || Cookies.get('user_id');
+  if (user_id) {
+    gtag('set', { 'dimension2': user_id });
+
+    Cookies.set('dimension2', user_id);
+  }
+
+  {% if page.sku %}
+      gtag('set', 'dimension1', '{{ page.sku }}');
+  {% endif %}
+</script>

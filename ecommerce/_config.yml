@@ -1,0 +1,37 @@
+# config
+name: ecommerce
+url: "http://localhost:8080"
+
+# ID do GA onde sera computado os dados
+GA_TAG: "" 
+
+# Profile information
+author: "Cesar Augusto"
+title: "E-commerce Python Brasil 2020"
+
+# Meta Tag
+description: > # this means to ignore newlines until "baseurl:"
+  Site para vizualização dos produtos e recomendações baseadas 
+  na interação do usuario
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README*
+
+# Assets
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-datapage-generator  
+
+page_gen:
+  - data: products
+    template: product
+    name: sku
+    dir: products

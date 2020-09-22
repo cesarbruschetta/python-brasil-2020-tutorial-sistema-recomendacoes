@@ -1,0 +1,16 @@
+---
+layout: default
+title: Lista de Produtos
+---
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <h2>Lista de Produtos</h2>
+      {% assign products = site.data.products | sample: 50 %}
+        <div class="row">
+            {% for product in products %}
+              {% include product_item.html %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

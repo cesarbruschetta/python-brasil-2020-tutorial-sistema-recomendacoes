@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <h1>Produto: {{page.title}}</h1>
+        <div class="row">
+            <div class="col">
+                <figure class="figure">
+                    <img src="https://picsum.photos/id/{{ 100 | random_number }}/300" 
+                        class="figure-img img-fluid rounded" alt="{{page.title}}">
+                    <figcaption class="figure-caption">{{page.title}}</figcaption>
+                </figure>
+            </div>
+            <div class="col">
+                <ul>
+                    <li><b>SKU:</b> {{page.sku}}</li>
+                    <li><b>R$ </b>{{page.price}},99</li>
+                  </ul>
+                <p>{{ page.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% include recommendations.html 
+    recommendations_title="Quem viu este produto, viu estes também" 
+    product_sku=page.sku
+%}

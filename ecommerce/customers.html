@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<div class="album py-5 bg-light">
+    <div class="container">
+        <h1>Usuarios</h1>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Set User-ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% assign customers = site.data.customers | sample: 100 %}
+                        {% for customer in customers %}
+                            <tr>
+                                <th scope="row">{{ customer.index }}</th>
+                                <td>{{ customer.name }}</td>
+                                <td>
+                                    <a href="/?user-id={{ customer.uuid }}" target="blank" >{{ customer.uuid }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

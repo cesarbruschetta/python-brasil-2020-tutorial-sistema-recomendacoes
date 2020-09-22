@@ -1,0 +1,29 @@
+---
+---
+<!DOCTYPE html>
+<html lang="pt_BR">
+    <head>
+        <script src="/assets/js/js.cookie.min.js"></script>
+        {% include analytics.html %}
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{{ site.description }}">
+        <meta name="author" content="Cesar Augusto Bruschetta">
+        
+        <title>Recomendation | {{ page.title | default: site.title }}</title>
+        
+        {% include stylesheet.html %}
+        {% include scripts.html %}
+    </head> 
+    <body>
+        {% include header.html %}
+    
+        <main role="main">
+            {{ content }}
+        </main>
+        {% include footer.html %}
+    </body>
+</html>
