@@ -19,4 +19,4 @@
 
 
 ## Licence
-[Apache License](./LICENSE) - Version 2.0, January 2004 
+[Apache License](./LICENSE.md) - Version 2.0, January 2004 

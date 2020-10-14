@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - ecommerce
+    ports:
+      - "8080:80"
+
+  ecommerce:
+    image: jekyll/jekyll:latest
+    command: jekyll serve --watch --force_polling --verbose
+    environment:
+      GIT_DISCOVERY_ACROSS_FILESYSTEM: "1"
+    restart: always
+    volumes:
+      - ./ecommerce:/srv/jekyll
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pythonbrasil
+      MONGO_INITDB_ROOT_PASSWORD: pythonbrasil
