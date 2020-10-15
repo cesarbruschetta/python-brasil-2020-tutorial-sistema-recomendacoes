@@ -15,14 +15,13 @@ function get_recomendation(path) {
         },
     })
     .done(function (data) {
-        content.prepend('<div class="col"><ul>')
+        var elements = ""
         data.forEach(element => {
-            content.prepend(`<li>${element.title}</li>\
-                <li><b>SKU:</b> ${element.sku}</li>\
-                <li><b>R$ </b>${element.price},99</li>`
-            )
+            elements += `<li>${element.title}</li>\
+            <li><b>SKU:</b> ${element.sku}</li>\
+            <li><b>R$ </b>${element.price},99</li>`
         });
-        content.prepend('</ul></div>')
+        content.prepend(`<div class="col"><ul>${elements}</ul></div>`);
     })
     .fail(function (jqXHR, textStatus) {
         console.log(jqXHR);
