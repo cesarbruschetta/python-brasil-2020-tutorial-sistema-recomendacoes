@@ -2,10 +2,18 @@ import json
 from aiohttp.web import Response
 from typing import Any, Dict, Optional
 
+from .dao_mongo import MongoDB
+from .serializer import ProductDictSerializer
+
 CONTENT_TYPE = "application/json"
 
 
 class Controller:
+    def __init__(self, *args, **kwargs):
+        self.db = MongoDB()
+        self.product_serializer = ProductDictSerializer()
+        super().__init__(*args, **kwargs)
+
     def _get_bad_request(self, message: str) -> Response:
         return self._get_response(400, {"message": message})
 
@@ -45,12 +53,14 @@ class Controller:
         return self._get_response(200)
 
     async def get_recommendations(self) -> Response:
-
-        return self._get_response(200, [])
+        product = self.db.products().find_one()
+        products = [product]
+        return self._get_response(200, self.product_serializer.serialize_many(products))
 
     async def get_recommendations_products(self, product_sku: str) -> Response:
-
-        return self._get_response(200, [])
+        product = self.db.products().find_one({"sku": product_sku})
+        products = [product]
+        return self._get_response(200, self.product_serializer.serialize_many(products))
 
 
 c = Controller()
