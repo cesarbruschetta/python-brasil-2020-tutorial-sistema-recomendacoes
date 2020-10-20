@@ -8,6 +8,7 @@ authors = ["Cesar Augusto <cesarabruschetta@gmail.com>"]
 python = "^3.8"
 pymongo = "^3.11.0"
 connexion = {extras = ['aiohttp', 'swagger-ui'], version = '==2.4.0'}
+macaco-louco = {path = '../mao-na-massa/macaco-louco/dist/macaco_louco-0.1.0-py3-none-any.whl'}
 
 [tool.poetry.dev-dependencies]
 black = "^20.8b1"

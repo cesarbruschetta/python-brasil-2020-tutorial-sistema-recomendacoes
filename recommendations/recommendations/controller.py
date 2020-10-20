@@ -2,16 +2,16 @@ import json
 from aiohttp.web import Response
 from typing import Any, Dict, Optional
 
-from .dao_mongo import MongoDB
 from .serializer import ProductDictSerializer
+from macacolouco.recommendations import Recommendation
 
 CONTENT_TYPE = "application/json"
 
 
 class Controller:
     def __init__(self, *args, **kwargs):
-        self.db = MongoDB()
         self.product_serializer = ProductDictSerializer()
+        self.recs = Recommendation()
         super().__init__(*args, **kwargs)
 
     def _get_bad_request(self, message: str) -> Response:
@@ -53,13 +53,11 @@ class Controller:
         return self._get_response(200)
 
     async def get_recommendations(self) -> Response:
-        product = self.db.products().find_one()
-        products = [product]
+        products = self.recs.compute(product_sku="all")
         return self._get_response(200, self.product_serializer.serialize_many(products))
 
     async def get_recommendations_products(self, product_sku: str) -> Response:
-        product = self.db.products().find_one({"sku": product_sku})
-        products = [product]
+        products = self.recs.compute(product_sku=product_sku)
         return self._get_response(200, self.product_serializer.serialize_many(products))
 
 
