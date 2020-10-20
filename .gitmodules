@@ -1,0 +1,3 @@
+[submodule "mao-na-massa"]
+	path = mao-na-massa
+	url = git@github.com:cesarbruschetta/mao-na-massa.git
