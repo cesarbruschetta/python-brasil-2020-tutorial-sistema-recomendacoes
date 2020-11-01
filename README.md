@@ -2,14 +2,13 @@
 
 ## Tutorial da Python Brasil 2020
 
-Neste tutorial vamos aprender um um pouco do ecossistema de recomendações para e-commerce. Nele vamos criar um algoritmo baseado nas interações dos usuários no nosso site, após vamos construir uma API que que consultará os dados processados do algoritmo e servirá para o site, e para unir tudo isso aí, vamos usar como cola um pouco de Docker, para nossas dependências, JS para montar nosso frontend, Júpiter Notebook, muita fé e suor. :muscle::muscle::muscle::muscle:
-
+Neste tutorial vamos aprender um pouco do ecossistema de recomendações para e-commerce. Nele vamos criar um algoritmo baseado nas interações dos usuários no nosso site, após vamos construir uma API que consultará os dados processados do algoritmo e servirá para o site e para unir tudo isso aí, vamos interligar um pouco de Docker para nossas dependências, JS para montar nosso frontend, Jupyter Notebook, muita fé e suor. :muscle::muscle::muscle::muscle:
 
 ## Algoritmo
 
 #### Calcular modelo de `Who X also X`
-
-Calculo do modelo de estudo paseado na interação de visualização de produtos num e-commerce, assim  criando um modelo de recomendação `quem-viu-tambem-viu`
+ 
+Calculo do modelo de estudo baseado na interação de visualização de produtos no e-commerce, criando assim um modelo de recomendação `quem-viu-também-viu`.
 
 ## Ferramentas
 
@@ -25,6 +24,7 @@ Calculo do modelo de estudo paseado na interação de visualização de produtos
 * Frontend
     * [Jekyll](https://jekyllrb.com/docs/)
     * [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
+    * [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
     * [Lorem Picsum](https://picsum.photos/)
 
 ## Autor
