@@ -10,6 +10,15 @@ Neste tutorial vamos aprender um pouco do ecossistema de recomendações para e-
  
 Calculo do modelo de estudo baseado na interação de visualização de produtos no e-commerce, criando assim um modelo de recomendação `quem-viu-também-viu`.
 
+## Documentação
+
+* [Setup do Tutorial](https://qrco.de/bboDHL)
+* [Apresentação](https://qrco.de/bbod7P)
+
+## Bibliotecas auxiliares
+* [bart-extract-ga](https://pypi.org/project/bart-extract-ga/)
+* [bart-simulator](https://pypi.org/project/bart-simulator/)
+
 ## Ferramentas
 
 * Infraestrutura

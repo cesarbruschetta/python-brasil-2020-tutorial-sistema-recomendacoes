@@ -1,4 +1,4 @@
-DOCKER_NAME=python-brasil-2020-tutorial-sistema-recomentacoes_mongo_1
+DOCKER_NAME=python-brasil-2020-tutorial-sistema-recomendacoes_mongo_1
 DOCKER_NETWORK=$(shell docker inspect -f '{{.HostConfig.NetworkMode}}' ${DOCKER_NAME})
 DOCKER_IP=$(shell docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${DOCKER_NAME})
 
